@@ -2,6 +2,8 @@ package main
 
 import (
 	"firstgomode/internal/config"
+	"firstgomode/internal/http-server/handlers/url/delete"
+	"firstgomode/internal/http-server/handlers/url/redirect"
 	"firstgomode/internal/http-server/handlers/url/save"
 	mwLogger "firstgomode/internal/http-server/middleware/logger"
 	"firstgomode/internal/lib/logger/handlers/slogpretty"
@@ -50,6 +52,8 @@ func main() {
 	router.Use(middleware.URLFormat)
 
 	router.Post("/url", save.New(log, storage))
+	router.Get("/{alias}", redirect.New(log, storage))
+	router.Delete("/url/{alias}", delete.New(log, storage))
 
 	log.Info("starting server", slog.String("address", cfg.Addres))
 
