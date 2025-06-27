@@ -6,4 +6,3 @@ http_server:
   idle_timeout: 60s
   user: "lesha"
 
-#написать &env::CONFIG_PATH=./logger/local.yaml в терминал
