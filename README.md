@@ -46,18 +46,24 @@
    cd nilchan1vid
    ```
 
-2. Установить зависимости
+2. Восстановить нужные пути и файлы
+    ```
+    mkdir storage
+    cd storage 
+    touch storage.db
+    ```
+3. Установить зависимости
    ```
+   cd ./
    go mod download
    ```
 
-3. Запустить приложение
-   ```
-   $env:CONFIG_PATH="config/local.yaml" (или другой если вы имплементируете другие конфиги)
-   ```
-   ```
-   $env:HTTP_SERVER_PASSWORD="yourpassword"
-   ```
+4. Задать перемнные окружения
+    ```
+    $env:CONFIG_PATH="config/local.yaml" (или другой если вы имплементируете другие конфиги)
+    $env:HTTP_SERVER_PASSWORD="yourpassword"
+    ```
+5. Запустить приложение
    ```
     go run cmd/project/main.go
    ```
